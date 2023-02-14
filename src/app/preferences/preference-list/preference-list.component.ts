@@ -8,7 +8,7 @@ import { ApartmentAttribute } from '../../shared/apartmentAttribute.model';
 })
 export class PreferenceListComponent {
   apartmentAttributes: ApartmentAttribute[] = [
-    new ApartmentAttribute('Price', 5),
-    new ApartmentAttribute('size', 3),
+    new ApartmentAttribute('Terraza', 2),
+    new ApartmentAttribute('Dúas habitacións', 3),
   ]
 }
