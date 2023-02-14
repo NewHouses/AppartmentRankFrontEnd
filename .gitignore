@@ -26,6 +26,7 @@ yarn-error.log
 !.vscode/launch.json
 !.vscode/extensions.json
 .history/*
+.vs/*
 
 # Miscellaneous
 /.angular/cache
@@ -39,3 +40,11 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+/.vs/AppartmentRankFrontEnd/FileContentIndex/99c059af-4067-48fe-b0ca-08960fc1aa3d.vsidx
+/.vs/AppartmentRankFrontEnd/FileContentIndex/99c059af-4067-48fe-b0ca-08960fc1aa3d.vsidx
+/.vs/AppartmentRankFrontEnd/FileContentIndex/99c059af-4067-48fe-b0ca-08960fc1aa3d.vsidx
+/.gitignore
+/.vs/slnx.sqlite
+/.vs/slnx.sqlite
+/.vs/AppartmentRankFrontEnd/FileContentIndex/99c059af-4067-48fe-b0ca-08960fc1aa3d.vsidx
+/.vs/AppartmentRankFrontEnd/FileContentIndex/99c059af-4067-48fe-b0ca-08960fc1aa3d.vsidx
