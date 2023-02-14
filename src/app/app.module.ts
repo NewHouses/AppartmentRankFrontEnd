@@ -9,7 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { AppartmentsComponent } from './appartments/appartments.component';
 import { PreferencesComponent } from './preferences/preferences.component';
 import { PreferenceListComponent } from './preferences/preference-list/preference-list.component';
-import { PreferenceItemComponent } from './preferences/preference-list/preference-item/preference-item.component';
+import { PreferenceEditComponent } from './preferences/preference-list/preference-edit/preference-edit.component';
 import { FilterComponent } from './appartments/filter/filter.component';
 import { AppartmentListComponent } from './appartments/appartment-list/appartment-list.component';
 import { AppartmentItemComponent } from './appartments/appartment-list/appartment-item/appartment-item.component';
@@ -23,7 +23,7 @@ import { AppartmentItemComponent } from './appartments/appartment-list/appartmen
     AppartmentsComponent,
     PreferencesComponent,
     PreferenceListComponent,
-    PreferenceItemComponent,
+    PreferenceEditComponent,
     FilterComponent,
     AppartmentListComponent,
     AppartmentItemComponent
