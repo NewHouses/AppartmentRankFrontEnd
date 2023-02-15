@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "AppartmentRankFrontEnd": {
+    "ApartmentRankFrontEnd": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/appartment-rank-front-end",
+            "outputPath": "dist/apartment-rank-front-end",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -61,10 +61,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "AppartmentRankFrontEnd:build:production"
+              "browserTarget": "ApartmentRankFrontEnd:build:production"
             },
             "development": {
-              "browserTarget": "AppartmentRankFrontEnd:build:development"
+              "browserTarget": "ApartmentRankFrontEnd:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -72,7 +72,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "AppartmentRankFrontEnd:build"
+            "browserTarget": "ApartmentRankFrontEnd:build"
           }
         },
         "test": {

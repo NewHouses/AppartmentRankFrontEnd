@@ -1,4 +1,4 @@
-export class Appartment {
+export class Apartment {
   public name: string;
   public link: string;
   public description: string;

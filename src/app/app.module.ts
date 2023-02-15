@@ -4,25 +4,25 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { AppartmentsComponent } from './appartments/appartments.component';
 import { PreferencesComponent } from './preferences/preferences.component';
 import { PreferenceListComponent } from './preferences/preference-list/preference-list.component';
 import { PreferenceEditComponent } from './preferences/preference-list/preference-edit/preference-edit.component';
-import { FilterComponent } from './appartments/filter/filter.component';
-import { AppartmentListComponent } from './appartments/appartment-list/appartment-list.component';
-import { AppartmentItemComponent } from './appartments/appartment-list/appartment-item/appartment-item.component';
+import { ApartmentItemComponent } from './apartments/apartment-list/apartment-item/apartment-item.component';
+import { ApartmentsComponent } from './apartments/apartments.component';
+import { ApartmentListComponent } from './apartments/apartment-list/apartment-list.component';
+import { FilterComponent } from './apartments/filter/filter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    AppartmentsComponent,
     PreferencesComponent,
     PreferenceListComponent,
     PreferenceEditComponent,
+    ApartmentsComponent,
+    ApartmentListComponent,
+    ApartmentItemComponent,
     FilterComponent,
-    AppartmentListComponent,
-    AppartmentItemComponent
   ],
   imports: [
     FormsModule,
