@@ -3,8 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { ServerComponent } from './exercises/server/server.component';
-import { ServersComponent } from './exercises/servers/servers.component';
 import { HeaderComponent } from './header/header.component';
 import { AppartmentsComponent } from './appartments/appartments.component';
 import { PreferencesComponent } from './preferences/preferences.component';
@@ -17,8 +15,6 @@ import { AppartmentItemComponent } from './appartments/appartment-list/appartmen
 @NgModule({
   declarations: [
     AppComponent,
-    ServerComponent,
-    ServersComponent,
     HeaderComponent,
     AppartmentsComponent,
     PreferencesComponent,
