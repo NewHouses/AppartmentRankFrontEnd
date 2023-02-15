@@ -11,4 +11,8 @@ export class PreferenceListComponent {
     new ApartmentAttribute('Terraza', 2),
     new ApartmentAttribute('Dúas habitacións', 3),
   ]
+
+  onApartmentAttributeAdded(apartmentAttribute: ApartmentAttribute) {
+    this.apartmentAttributes.push(apartmentAttribute);
+  }
 }
