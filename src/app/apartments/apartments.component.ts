@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Apartment } from './apartment.model';
 
 @Component({
   selector: 'app-apartments',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./apartments.component.css']
 })
 export class ApartmentsComponent {
-
+  selectedApartment!: Apartment;
 }

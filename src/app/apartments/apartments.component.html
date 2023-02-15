@@ -2,9 +2,13 @@
 <hr />
 <div class="row">
   <div class="col-md-5">
-    <app-apartment-list></app-apartment-list>
+    <app-apartment-list (apartmentWasSelected)="selectedApartment = $event"></app-apartment-list>
   </div>
-  <div class="col-md-7">
-    <app-apartment-detail></app-apartment-detail>
+  <div class="col-md-7" >
+    <app-apartment-detail *ngIf="selectedApartment; else infoText"
+                          [apartmentDetail]="selectedApartment"></app-apartment-detail>
+    <ng-template #infoText>
+      <p>Please select an Apartment!</p>
+    </ng-template>
   </div>
 </div>

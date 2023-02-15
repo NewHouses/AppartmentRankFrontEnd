@@ -6,7 +6,8 @@
 <hr />
 <div class="row">
   <div class="col-xs-12">
-    <app-apartment-item *ngFor="let apartmentEl of apartments"
-                        [apartment]="apartmentEl"></app-apartment-item>
+    <app-apartment-item *ngFor="let apartment of apartments"
+                        [apartmentItem]="apartment"
+                        (apartmentSelected)="onApartmentSelected(apartment)"></app-apartment-item>
   </div>
 </div>

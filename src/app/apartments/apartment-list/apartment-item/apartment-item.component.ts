@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Apartment } from '../../apartment.model';
 
 @Component({
@@ -7,10 +7,15 @@ import { Apartment } from '../../apartment.model';
   styleUrls: ['./apartment-item.component.css']
 })
 export class ApartmentItemComponent implements OnInit {
-  @Input() apartment!: Apartment;
+  @Input('apartmentItem') apartment!: Apartment;
+  @Output() apartmentSelected = new EventEmitter<void>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSelected() {
+    this.apartmentSelected.emit();
   }
 }

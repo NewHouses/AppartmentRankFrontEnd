@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Apartment } from '../apartment.model';
 
 @Component({
   selector: 'app-apartment-detail',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./apartment-detail.component.css']
 })
 export class ApartmentDetailComponent {
-
+  @Input('apartmentDetail') apartment!: Apartment;
 }
