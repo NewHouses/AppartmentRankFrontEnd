@@ -6,17 +6,7 @@
 <hr />
 <div class="row">
   <div class="col-xs-12">
-    <a
-       href="#"
-       class="list-group-item clearfix"
-       *ngFor="let apartment of apartments">
-      <div class="pull-left">
-        <h4 class="list-group-item-heading">{{ apartment.name }}</h4>
-        <h5 class="list-group-item-heading">{{ apartment.link }}</h5>
-      </div>
-      <span class="pull-right">
-        <img src="{{ apartment.imagePath }}" alt="{{ apartment.name }}" class="img-responsive" style="max-height: 50px;" />
-      </span>
-    </a>
+    <app-apartment-item *ngFor="let apartmentEl of apartments"
+                        [apartment]="apartmentEl"></app-apartment-item>
   </div>
 </div>
