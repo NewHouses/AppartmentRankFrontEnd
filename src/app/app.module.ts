@@ -7,9 +7,10 @@ import { HeaderComponent } from './header/header.component';
 import { PreferencesComponent } from './preferences/preferences.component';
 import { PreferenceListComponent } from './preferences/preference-list/preference-list.component';
 import { PreferenceEditComponent } from './preferences/preference-list/preference-edit/preference-edit.component';
-import { ApartmentItemComponent } from './apartments/apartment-list/apartment-item/apartment-item.component';
 import { ApartmentsComponent } from './apartments/apartments.component';
 import { ApartmentListComponent } from './apartments/apartment-list/apartment-list.component';
+import { ApartmentItemComponent } from './apartments/apartment-list/apartment-item/apartment-item.component';
+import { ApartmentDetailComponent } from './apartments/apartment-detail/apartment-detail.component';
 import { FilterComponent } from './apartments/filter/filter.component';
 
 @NgModule({
@@ -21,6 +22,7 @@ import { FilterComponent } from './apartments/filter/filter.component';
     PreferenceEditComponent,
     ApartmentsComponent,
     ApartmentListComponent,
+    ApartmentDetailComponent,
     ApartmentItemComponent,
     FilterComponent,
   ],
