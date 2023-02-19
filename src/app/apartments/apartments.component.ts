@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Apartment } from './apartment.model';
 import { ApartmentService } from './apartment.service';
 
@@ -8,6 +8,16 @@ import { ApartmentService } from './apartment.service';
   styleUrls: ['./apartments.component.css'],
   providers: [ApartmentService]
 })
-export class ApartmentsComponent {
+export class ApartmentsComponent implements OnInit {
   selectedApartment!: Apartment;
+
+  constructor(private apartmentService: ApartmentService) { }
+
+  ngOnInit(): void {
+    this.apartmentService.apartmentSelected.subscribe(
+      (apartment: Apartment) => {
+        this.selectedApartment = apartment;
+      }
+      )
+  }
 }

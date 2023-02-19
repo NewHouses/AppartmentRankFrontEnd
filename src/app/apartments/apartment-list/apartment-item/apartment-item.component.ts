@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Apartment } from '../../apartment.model';
+import { ApartmentService } from '../../apartment.service';
 
 @Component({
   selector: 'app-apartment-item',
@@ -8,14 +9,13 @@ import { Apartment } from '../../apartment.model';
 })
 export class ApartmentItemComponent implements OnInit {
   @Input('apartmentItem') apartment!: Apartment;
-  @Output() apartmentSelected = new EventEmitter<void>();
 
-  constructor() { }
+  constructor(private apartmentService: ApartmentService) { }
 
   ngOnInit() {
   }
 
   onSelected() {
-    this.apartmentSelected.emit();
+    this.apartmentService.apartmentSelected.emit(this.apartment);
   }
 }
