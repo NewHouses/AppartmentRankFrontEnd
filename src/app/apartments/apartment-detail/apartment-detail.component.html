@@ -32,3 +32,12 @@
     {{ apartment.description }}
   </div>
 </div>
+<div class="row">
+  <div class="col-xs-12">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let apartmentAttribute of apartment.apartmentAttributes">
+        {{ apartmentAttribute.name}} - {{ apartmentAttribute.score }}
+      </li>
+    </ul>
+  </div>
+</div>
