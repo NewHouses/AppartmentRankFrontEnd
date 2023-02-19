@@ -12,6 +12,7 @@ import { ApartmentListComponent } from './apartments/apartment-list/apartment-li
 import { ApartmentItemComponent } from './apartments/apartment-list/apartment-item/apartment-item.component';
 import { ApartmentDetailComponent } from './apartments/apartment-detail/apartment-detail.component';
 import { FilterComponent } from './apartments/filter/filter.component';
+import { DropdownDirective } from './shared/dropdown.directive';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { FilterComponent } from './apartments/filter/filter.component';
     ApartmentDetailComponent,
     ApartmentItemComponent,
     FilterComponent,
+    DropdownDirective
   ],
   imports: [
     FormsModule,
