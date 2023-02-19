@@ -13,6 +13,7 @@ import { ApartmentItemComponent } from './apartments/apartment-list/apartment-it
 import { ApartmentDetailComponent } from './apartments/apartment-detail/apartment-detail.component';
 import { FilterComponent } from './apartments/filter/filter.component';
 import { DropdownDirective } from './shared/dropdown.directive';
+import { PreferenceService } from './preferences/preference.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { DropdownDirective } from './shared/dropdown.directive';
     FormsModule,
     BrowserModule
   ],
-  providers: [],
+  providers: [PreferenceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

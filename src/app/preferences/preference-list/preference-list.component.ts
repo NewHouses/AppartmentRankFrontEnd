@@ -1,18 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApartmentAttribute } from '../../shared/apartmentAttribute.model';
+import { PreferenceService } from '../preference.service';
 
 @Component({
   selector: 'app-preference-list',
   templateUrl: './preference-list.component.html',
   styleUrls: ['./preference-list.component.css']
 })
-export class PreferenceListComponent {
-  apartmentAttributes: ApartmentAttribute[] = [
-    new ApartmentAttribute('Terraza', 2),
-    new ApartmentAttribute('Dúas habitacións', 3),
-  ]
+export class PreferenceListComponent implements OnInit {
+  apartmentAttributes: ApartmentAttribute[] = [];
+  constructor(private preferenceServices: PreferenceService) { }
 
-  onApartmentAttributeAdded(apartmentAttribute: ApartmentAttribute) {
-    this.apartmentAttributes.push(apartmentAttribute);
+  ngOnInit(): void {
+    this.apartmentAttributes = this.preferenceServices.getPreferences();
+    this.preferenceServices.preferencesChanged.subscribe(
+      (preferences: ApartmentAttribute[]) => {
+        this.apartmentAttributes = this.preferenceServices.getPreferences();
+      }
+      )
   }
 }

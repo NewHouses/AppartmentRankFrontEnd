@@ -1,5 +1,6 @@
-import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ApartmentAttribute } from '../../../shared/apartmentAttribute.model';
+import { PreferenceService } from '../../preference.service';
 
 @Component({
   selector: 'app-preference-edit',
@@ -9,12 +10,13 @@ import { ApartmentAttribute } from '../../../shared/apartmentAttribute.model';
 export class PreferenceEditComponent {
   @ViewChild('nameInput') nameInputRef!: ElementRef;
   @ViewChild('scoreInput') scoreInputRef!: ElementRef;
-  @Output() apartmentAttributeAdded = new EventEmitter<ApartmentAttribute>();
+
+  constructor(private preferenceService: PreferenceService) { }
 
   onAddApartmentAttribute() {
     const attributeName = this.nameInputRef.nativeElement.value;
     const attributeScore = this.scoreInputRef.nativeElement.value;
-    const newapartmentAttribute = new ApartmentAttribute(attributeName, attributeScore);
-    this.apartmentAttributeAdded.emit(newapartmentAttribute);
+    const newApartmentAttribute = new ApartmentAttribute(attributeName, attributeScore);
+    this.preferenceService.addApartmentAttribute(newApartmentAttribute);
   }
 }
