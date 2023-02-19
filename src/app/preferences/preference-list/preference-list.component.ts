@@ -14,7 +14,7 @@ export class PreferenceListComponent implements OnInit {
   ngOnInit(): void {
     this.apartmentAttributes = this.preferenceServices.getPreferences();
     this.preferenceServices.preferencesChanged.subscribe(
-      (preferences: ApartmentAttribute[]) => {
+      () => {
         this.apartmentAttributes = this.preferenceServices.getPreferences();
       }
       )

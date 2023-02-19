@@ -1,7 +1,9 @@
-import { EventEmitter } from "@angular/core";
+import { EventEmitter, Injectable } from "@angular/core";
+import { PreferenceService } from "../preferences/preference.service";
 import { ApartmentAttribute } from "../shared/apartmentAttribute.model";
 import { Apartment } from "./apartment.model";
 
+@Injectable()
 export class ApartmentService {
   private apartments: Apartment[] = [
     new Apartment('Alquiler de Piso en As Travesas - Balaídos',
@@ -16,9 +18,15 @@ export class ApartmentService {
     )
   ];
 
+  constructor(private preferenceService: PreferenceService) { }
+
   apartmentSelected = new EventEmitter<Apartment>();
 
   getApartments() {
     return this.apartments.slice();
+  }
+
+  addApartmentAttributesToPreferenceList(apartmentAttributes: ApartmentAttribute[]) {
+    this.preferenceService.addApartmentAttributes(apartmentAttributes);
   }
 }

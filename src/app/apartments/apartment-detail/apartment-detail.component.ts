@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Apartment } from '../apartment.model';
+import { ApartmentService } from '../apartment.service';
 
 @Component({
   selector: 'app-apartment-detail',
@@ -8,4 +9,10 @@ import { Apartment } from '../apartment.model';
 })
 export class ApartmentDetailComponent {
   @Input('apartmentDetail') apartment!: Apartment;
+
+  constructor(private apartmentService: ApartmentService) { }
+
+  onAddToPrefereceList() {
+    this.apartmentService.addApartmentAttributesToPreferenceList(this.apartment.apartmentAttributes);
+  }
 }

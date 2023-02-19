@@ -7,7 +7,7 @@ export class PreferenceService {
     new ApartmentAttribute('Dúas habitacións', 3),
   ]
 
-  preferencesChanged = new EventEmitter<ApartmentAttribute[]>();
+  preferencesChanged = new EventEmitter();
 
   getPreferences() {
     return this.preferences.slice();
@@ -16,5 +16,10 @@ export class PreferenceService {
   addApartmentAttribute(apartmentAttribute: ApartmentAttribute) {
     this.preferences.push(apartmentAttribute);
     this.preferencesChanged.emit(this.preferences.slice());
+  }
+
+  addApartmentAttributes(apartmentAttributes: ApartmentAttribute[]) {
+    this.preferences.push(...apartmentAttributes);
+    this.preferencesChanged.emit()
   }
 }
