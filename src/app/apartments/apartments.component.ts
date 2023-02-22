@@ -18,6 +18,6 @@ export class ApartmentsComponent implements OnInit {
       (apartment: Apartment) => {
         this.selectedApartment = apartment;
       }
-      )
+    );
   }
 }

@@ -2,12 +2,11 @@ import { EventEmitter } from "@angular/core";
 import { ApartmentAttribute } from "../shared/apartmentAttribute.model";
 
 export class PreferenceService {
+  preferencesChanged = new EventEmitter();
   private preferences: ApartmentAttribute[] = [
     new ApartmentAttribute('Terraza', 2),
     new ApartmentAttribute('Dúas habitacións', 3),
   ]
-
-  preferencesChanged = new EventEmitter();
 
   getPreferences() {
     return this.preferences.slice();
