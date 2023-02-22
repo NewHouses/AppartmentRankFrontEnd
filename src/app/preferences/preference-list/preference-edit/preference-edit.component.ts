@@ -49,4 +49,9 @@ export class PreferenceEditComponent implements OnInit, OnDestroy {
     this.editMode = false;
     form.reset();
   }
+
+  onClear() {
+    this.editMode = false;
+    this.preferencesForm.reset();
+  }
 }
