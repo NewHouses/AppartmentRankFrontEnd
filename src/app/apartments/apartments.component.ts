@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Apartment } from './apartment.model';
 import { ApartmentService } from './apartment.service';
 
 @Component({
@@ -9,15 +8,9 @@ import { ApartmentService } from './apartment.service';
   providers: [ApartmentService]
 })
 export class ApartmentsComponent implements OnInit {
-  selectedApartment!: Apartment;
 
-  constructor(private apartmentService: ApartmentService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.apartmentService.apartmentSelected.subscribe(
-      (apartment: Apartment) => {
-        this.selectedApartment = apartment;
-      }
-    );
   }
 }

@@ -1,4 +1,4 @@
-import { EventEmitter, Injectable } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { PreferenceService } from "../preferences/preference.service";
 import { ApartmentAttribute } from "../shared/apartmentAttribute.model";
 import { Apartment } from "./apartment.model";
@@ -19,8 +19,6 @@ export class ApartmentService {
   ];
 
   constructor(private preferenceService: PreferenceService) { }
-
-  apartmentSelected = new EventEmitter<Apartment>();
 
   getApartments() {
     return this.apartments.slice();
