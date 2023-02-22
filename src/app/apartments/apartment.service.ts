@@ -26,6 +26,10 @@ export class ApartmentService {
     return this.apartments.slice();
   }
 
+  getApartment(index: number) {
+    return this.apartments.slice()[index];
+  }
+
   addApartmentAttributesToPreferenceList(apartmentAttributes: ApartmentAttribute[]) {
     this.preferenceService.addApartmentAttributes(apartmentAttributes);
   }

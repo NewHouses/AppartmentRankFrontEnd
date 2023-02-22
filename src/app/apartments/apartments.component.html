@@ -5,10 +5,10 @@
     <app-apartment-list></app-apartment-list>
   </div>
   <div class="col-md-7" >
-    <app-apartment-detail *ngIf="selectedApartment; else infoText"
-                          [apartmentDetail]="selectedApartment"></app-apartment-detail>
-    <ng-template #infoText>
-      <p>Please select an Apartment!</p>
-    </ng-template>
+    <router-outlet></router-outlet>
+    <!--<app-apartment-detail
+      *ngIf="selectedApartment"
+      [apa--><!--rtmentDetail]="selectedApartment">-->
+    <!--</app-apartment-detail>-->
   </div>
 </div>

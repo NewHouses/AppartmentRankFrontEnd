@@ -1,5 +1,6 @@
-<a style="cursor: pointer;" class="list-group-item clearfix"
-   (click)="onSelected()">
+<a style="cursor: pointer;"
+   [routerLink]="[index]"
+   class="list-group-item clearfix">
   <div class="pull-left">
     <h4 class="list-group-item-heading">{{ apartment.name }}</h4>
     <h5 class="list-group-item-heading">{{ apartment.link }}</h5>
