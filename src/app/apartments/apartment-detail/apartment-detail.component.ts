@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Apartment } from '../apartment.model';
 import { ApartmentService } from '../apartment.service';
 
@@ -12,7 +12,7 @@ export class ApartmentDetailComponent implements OnInit {
    apartment: Apartment;
    apartmentId: number;
 
-  constructor(private apartmentService: ApartmentService, private route: ActivatedRoute) { }
+  constructor(private apartmentService: ApartmentService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(
@@ -25,5 +25,9 @@ export class ApartmentDetailComponent implements OnInit {
 
   onAddToPrefereceList() {
     this.apartmentService.addApartmentAttributesToPreferenceList(this.apartment.apartmentAttributes);
+  }
+
+  onEditApartment() {
+    this.router.navigate(['edit'], { relativeTo: this.route });
   }
 }

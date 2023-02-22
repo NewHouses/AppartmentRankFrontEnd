@@ -15,6 +15,7 @@ import { ApartmentDetailComponent } from './apartments/apartment-detail/apartmen
 import { FilterComponent } from './apartments/filter/filter.component';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { PreferenceService } from './preferences/preference.service';
+import { ApartmentEditComponent } from './apartments/apartment-edit/apartment-edit.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { PreferenceService } from './preferences/preference.service';
     ApartmentDetailComponent,
     ApartmentItemComponent,
     FilterComponent,
-    DropdownDirective
+    DropdownDirective,
+    ApartmentEditComponent
   ],
   imports: [
     FormsModule,
