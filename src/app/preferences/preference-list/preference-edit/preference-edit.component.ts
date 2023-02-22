@@ -46,12 +46,16 @@ export class PreferenceEditComponent implements OnInit, OnDestroy {
     else {
       this.preferenceService.addApartmentAttribute(newApartmentAttribute);
     }
-    this.editMode = false;
-    form.reset();
+    this.onClear();
   }
 
   onClear() {
     this.editMode = false;
     this.preferencesForm.reset();
+  }
+
+  onDelete() {
+    this.preferenceService.deleteApartmentAttribute(this.editedApartmentAttributeIndex);
+    this.onClear();
   }
 }

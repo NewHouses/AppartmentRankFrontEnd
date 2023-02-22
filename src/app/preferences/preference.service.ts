@@ -19,7 +19,7 @@ export class PreferenceService {
 
   addApartmentAttribute(apartmentAttribute: ApartmentAttribute) {
     this.preferences.push(apartmentAttribute);
-    this.preferencesChanged.next(this.preferences.slice());
+    this.preferencesChanged.next();
   }
 
   addApartmentAttributes(apartmentAttributes: ApartmentAttribute[]) {
@@ -29,6 +29,11 @@ export class PreferenceService {
 
   updateApartmentAttribute(index: number, newApartmentAttribute: ApartmentAttribute) {
     this.preferences[index] = newApartmentAttribute;
-    this.preferencesChanged.next(this.preferences.slice());
+    this.preferencesChanged.next();
+  }
+
+  deleteApartmentAttribute(index: number) {
+    this.preferences.splice(index, 1);
+    this.preferencesChanged.next();
   }
 }
