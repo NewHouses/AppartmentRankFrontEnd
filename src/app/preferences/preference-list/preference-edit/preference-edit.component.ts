@@ -19,7 +19,7 @@ export class PreferenceEditComponent implements OnInit, OnDestroy {
   constructor(private preferenceService: PreferenceService) { }
 
   ngOnInit(): void {
-    this.preferenceService.startedEditing
+    this.subscription = this.preferenceService.startedEditing
       .subscribe(
         (index: number) => {
           this.editedApartmentAttributeIndex = index;
