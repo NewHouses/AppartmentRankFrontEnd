@@ -27,4 +27,8 @@ export class PreferenceListComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.preferenceChangeSub.unsubscribe();
   }
+
+  onEditApartmentAttribute(index: number) {
+    this.preferenceServices.startedEditing.next(index);
+  }
 }

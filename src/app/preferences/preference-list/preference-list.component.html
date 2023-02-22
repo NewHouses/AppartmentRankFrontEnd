@@ -3,7 +3,10 @@
     <app-preference-edit></app-preference-edit>
     <hr />
     <ul class="list-group">
-      <a class="list-group-item" style="cursor: pointer" *ngFor="let apartmentAttribute of apartmentAttributes">
+      <a class="list-group-item"
+         style="cursor: pointer"
+         *ngFor="let apartmentAttribute of apartmentAttributes; let i = index"
+         (click)="onEditApartmentAttribute(i)">
         {{ apartmentAttribute.name }} <span class="pull-right">{{ apartmentAttribute.score }}</span>
       </a>
     </ul>
