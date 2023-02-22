@@ -35,7 +35,8 @@ import { ApartmentEditComponent } from './apartments/apartment-edit/apartment-ed
   imports: [
     FormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [PreferenceService],
   bootstrap: [AppComponent]

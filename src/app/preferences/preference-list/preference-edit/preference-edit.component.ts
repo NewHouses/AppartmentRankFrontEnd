@@ -1,4 +1,5 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ApartmentAttribute } from '../../../shared/apartmentAttribute.model';
 import { PreferenceService } from '../../preference.service';
 
@@ -8,15 +9,12 @@ import { PreferenceService } from '../../preference.service';
   styleUrls: ['./preference-edit.component.css']
 })
 export class PreferenceEditComponent {
-  @ViewChild('nameInput') nameInputRef!: ElementRef;
-  @ViewChild('scoreInput') scoreInputRef!: ElementRef;
 
   constructor(private preferenceService: PreferenceService) { }
 
-  onAddApartmentAttribute() {
-    const attributeName = this.nameInputRef.nativeElement.value;
-    const attributeScore = this.scoreInputRef.nativeElement.value;
-    const newApartmentAttribute = new ApartmentAttribute(attributeName, attributeScore);
+  onAddApartmentAttribute(form: NgForm) {
+    const value = form.value;
+    const newApartmentAttribute = new ApartmentAttribute(value.name, value.score);
     this.preferenceService.addApartmentAttribute(newApartmentAttribute);
   }
 }
