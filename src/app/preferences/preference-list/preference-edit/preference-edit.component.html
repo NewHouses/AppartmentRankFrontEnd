@@ -8,20 +8,24 @@
                  id="name"
                  class="form-control"
                  name="name"
-                 ngModel/>
+                 ngModel
+                 required/>
         </div>
         <div class="col-sm-2 form-group">
           <label for="score">Score</label>
-          <input type="text"
+          <input type="number"
                  id="score"
                  class="form-control"
                  name="score"
-                 ngModel/>
+                 ngModel
+                 required
+                 pattern="^-[1-5]|^[0-5]"
+                 />
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
-          <button class="btn btn-success" typeof="submit">Add</button>
+          <button class="btn btn-success" typeof="submit" [disabled]="!f.valid">Add</button>
           <button class="btn btn-danger" typeof="button">Delete</button>
           <button class="btn btn-primary" typeof="button">Clear</button>
         </div>
