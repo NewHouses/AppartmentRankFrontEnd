@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ApartmentBuilder } from '../apartment.builder';
 import { ApartmentService } from '../apartment.service';
 
@@ -18,7 +18,7 @@ export class ApartmentEditComponent implements OnInit {
     return (<FormArray>this.apartmentForm.get('apartmentAttributes')).controls;
   }
 
-  constructor(private route: ActivatedRoute, private apartmentService: ApartmentService) {
+  constructor(private router: Router, private route: ActivatedRoute, private apartmentService: ApartmentService) {
 
   }
 
@@ -46,6 +46,7 @@ export class ApartmentEditComponent implements OnInit {
     else {
       this.apartmentService.addApartment(newApartment.build());
     }
+    this.onCancel();
   }
 
   onAddApartmentAttribute() {
@@ -92,5 +93,9 @@ export class ApartmentEditComponent implements OnInit {
       'description': new FormControl(apartmentDescription, Validators.required),
       'apartmentAttributes': apartmentApartmentAttributes
     });
+  }
+
+  onCancel() {
+    this.router.navigate(['../'], { relativeTo: this.route });
   }
 }
