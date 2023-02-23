@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
+import { ApartmentBuilder } from '../apartment.builder';
 import { ApartmentService } from '../apartment.service';
 
 @Component({
@@ -32,7 +33,19 @@ export class ApartmentEditComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.apartmentForm);
+    const newApartment = new ApartmentBuilder()
+      .withName(this.apartmentForm.value['name'])
+      .withImage(this.apartmentForm.value['imagePath'])
+      .withDescription(this.apartmentForm.value['description'])
+      .withApartmentAttributes(this.apartmentForm.value['apartmentAttributes']);
+
+    if (this.editMode) {
+      newApartment.withLink(this.apartmentService.getApartment(this.apartmentId).link);
+      this.apartmentService.updateApartment(this.apartmentId, newApartment.build());
+    }
+    else {
+      this.apartmentService.addApartment(newApartment.build());
+    }
   }
 
   onAddApartmentAttribute() {

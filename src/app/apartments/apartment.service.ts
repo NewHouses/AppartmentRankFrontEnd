@@ -1,10 +1,13 @@
 import { Injectable } from "@angular/core";
+import { Subject } from "rxjs";
 import { PreferenceService } from "../preferences/preference.service";
 import { ApartmentAttribute } from "../shared/apartmentAttribute.model";
 import { Apartment } from "./apartment.model";
 
 @Injectable()
 export class ApartmentService {
+  apartmentsChanged = new Subject();
+
   private apartments: Apartment[] = [
     new Apartment('Alquiler de Piso en As Travesas - Balaídos',
       'https://www.idealista.com/inmueble/100121936/',
@@ -31,4 +34,15 @@ export class ApartmentService {
   addApartmentAttributesToPreferenceList(apartmentAttributes: ApartmentAttribute[]) {
     this.preferenceService.addApartmentAttributes(apartmentAttributes);
   }
+
+  addApartment(apartment: Apartment) {
+    this.apartments.push(apartment);
+    this.apartmentsChanged.next();
+  }
+
+  updateApartment(index: number, apartment: Apartment) {
+    this.apartments[index] = apartment;
+    this.apartmentsChanged.next();
+  }
+
 }
