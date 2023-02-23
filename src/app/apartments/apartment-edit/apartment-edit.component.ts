@@ -98,4 +98,8 @@ export class ApartmentEditComponent implements OnInit {
   onCancel() {
     this.router.navigate(['../'], { relativeTo: this.route });
   }
+
+  onDeleteApartmentAttribute(index: number) {
+    (<FormArray>this.apartmentForm.get('apartmentAttributes')).removeAt(index);
+  }
 }
