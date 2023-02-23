@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
 import { ApartmentService } from '../apartment.service';
 
@@ -35,6 +35,18 @@ export class ApartmentEditComponent implements OnInit {
     console.log(this.apartmentForm);
   }
 
+  onAddApartmentAttribute() {
+    (<FormArray>this.apartmentForm.get('apartmentAttributes')).push(
+      new FormGroup({
+        'name': new FormControl(null, Validators.required),
+        'score': new FormControl(null, [
+          Validators.required,
+          Validators.pattern(/^-[1-5]|^[0-5]/)
+        ])
+      })
+    );
+  }
+
   private initForm() {
     let apartmentName = '';
     let apartmentImagePath = '';
@@ -50,8 +62,11 @@ export class ApartmentEditComponent implements OnInit {
         for (let apartmentAttribute of apartment.apartmentAttributes) {
           apartmentApartmentAttributes.push(
             new FormGroup({
-              'name': new FormControl(apartmentAttribute.name),
-              'score': new FormControl(apartmentAttribute.score)
+              'name': new FormControl(apartmentAttribute.name, Validators.required),
+              'score': new FormControl(apartmentAttribute.score, [
+                Validators.required,
+                Validators.pattern(/^-[1-5]|^[0-5]/)
+              ])
             })
           );
         }
@@ -59,9 +74,9 @@ export class ApartmentEditComponent implements OnInit {
     }
 
     this.apartmentForm = new FormGroup({
-      'name': new FormControl(apartmentName),
-      'imagePath': new FormControl(apartmentImagePath),
-      'description': new FormControl(apartmentDescription),
+      'name': new FormControl(apartmentName, Validators.required),
+      'imagePath': new FormControl(apartmentImagePath, Validators.required),
+      'description': new FormControl(apartmentDescription, Validators.required),
       'apartmentAttributes': apartmentApartmentAttributes
     });
   }

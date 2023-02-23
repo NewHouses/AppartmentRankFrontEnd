@@ -3,7 +3,7 @@
     <form [formGroup]="apartmentForm" (ngSubmit)="onSubmit()">
       <div class="row">
         <div class="col-xs-12">
-          <button type="submit" class="btn btn-success">Save</button>
+          <button type="submit" class="btn btn-success" [disabled]="!apartmentForm.valid">Save</button>
           <button type="button" class="btn btn-danger">Cancel</button>
         </div>
       </div>
@@ -40,7 +40,8 @@
         <div class="col-xs-12" formArrayName="apartmentAttributes">
           <div class="row"
                *ngFor="let apartmentCtrl of controls; let i = index"
-               [formGroupName]="i">
+               [formGroupName]="i"
+               style="margin-top: 10px">
             <div class="col-xs-8">
               <input type="text" class="form-control" formControlName="name"/>
             </div>
@@ -49,6 +50,12 @@
             </div>
             <div class="col-xs-2">
               <button class="btn btn-danger">X</button>
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col-xs-12">
+              <button class="btn btn-success" (click)="onAddApartmentAttribute()">Add Apartment Attribute</button>
             </div>
           </div>
         </div>
