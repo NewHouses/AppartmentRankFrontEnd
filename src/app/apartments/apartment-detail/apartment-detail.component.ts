@@ -36,4 +36,9 @@ export class ApartmentDetailComponent implements OnInit, OnDestroy {
   onEditApartment() {
     this.router.navigate(['edit'], { relativeTo: this.route });
   }
+
+  onDeleteApartment() {
+    this.apartmentService.deleteApartment(this.apartmentId);
+    this.router.navigate(['../'], { relativeTo: this.route });
+  }
 }

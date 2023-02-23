@@ -45,4 +45,8 @@ export class ApartmentService {
     this.apartmentsChanged.next();
   }
 
+  deleteApartment(index: number) {
+    this.apartments.splice(index, 1);
+    this.apartmentsChanged.next();
+  }
 }
