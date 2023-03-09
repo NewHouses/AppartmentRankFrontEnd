@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -17,6 +18,7 @@ import { DropdownDirective } from './shared/dropdown.directive';
 import { PreferenceService } from './preferences/preference.service';
 import { ApartmentEditComponent } from './apartments/apartment-edit/apartment-edit.component';
 import { ApartmentService } from './apartments/apartment.service';
+import { DataStorageService } from './shared/data-storage.service';
 
 @NgModule({
   declarations: [
@@ -38,9 +40,10 @@ import { ApartmentService } from './apartments/apartment.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [PreferenceService, ApartmentService],
+  providers: [PreferenceService, ApartmentService, DataStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
