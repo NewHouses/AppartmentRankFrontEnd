@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit, ViewChild, } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { Preference } from '../../../shared/apartmentAttribute.model';
+import { Preference } from '../../../shared/preference.model';
 import { PreferenceService } from '../../preference.service';
 
 @Component({
@@ -13,8 +13,8 @@ export class PreferenceEditComponent implements OnInit, OnDestroy {
   @ViewChild('f', { static: false }) preferencesForm: NgForm;
   subscription: Subscription;
   editMode = false;
-  editedApartmentAttributeIndex: number;
-  editedApartmentAttribute: Preference;
+  editedPreferenceIndex: number;
+  editedPreference: Preference;
 
   constructor(private preferenceService: PreferenceService) { }
 
@@ -22,12 +22,12 @@ export class PreferenceEditComponent implements OnInit, OnDestroy {
     this.subscription = this.preferenceService.startedEditing
       .subscribe(
         (index: number) => {
-          this.editedApartmentAttributeIndex = index;
+          this.editedPreferenceIndex = index;
           this.editMode = true;
-          this.editedApartmentAttribute = this.preferenceService.getApartmentAttributePreference(index);
+          this.editedPreference = this.preferenceService.getPreference(index);
           this.preferencesForm.setValue({
-            name: this.editedApartmentAttribute.name,
-            score: this.editedApartmentAttribute.score
+            name: this.editedPreference.name,
+            score: this.editedPreference.score
           });
         }
     );
@@ -39,12 +39,12 @@ export class PreferenceEditComponent implements OnInit, OnDestroy {
 
   onSubmit(form: NgForm) {
     const value = form.value;
-    const newApartmentAttribute = new Preference(value.name, value.score);
+    const newPreference = new Preference(value.name, value.score);
     if (this.editMode) {
-      this.preferenceService.updateApartmentAttribute(this.editedApartmentAttributeIndex, newApartmentAttribute);
+      this.preferenceService.updatePreference(this.editedPreferenceIndex, newPreference);
     }
     else {
-      this.preferenceService.addApartmentAttribute(newApartmentAttribute);
+      this.preferenceService.addPreference(newPreference);
     }
     this.onClear();
   }
@@ -55,7 +55,7 @@ export class PreferenceEditComponent implements OnInit, OnDestroy {
   }
 
   onDelete() {
-    this.preferenceService.deleteApartmentAttribute(this.editedApartmentAttributeIndex);
+    this.preferenceService.deletePreference(this.editedPreferenceIndex);
     this.onClear();
   }
 }

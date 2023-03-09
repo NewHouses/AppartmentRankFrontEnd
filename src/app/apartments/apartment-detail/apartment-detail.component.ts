@@ -29,10 +29,6 @@ export class ApartmentDetailComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  onAddToPrefereceList() {
-    this.apartmentService.addApartmentAttributesToPreferenceList(this.apartment.apartmentAttributes);
-  }
-
   onEditApartment() {
     this.router.navigate(['edit'], { relativeTo: this.route });
   }

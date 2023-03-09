@@ -19,7 +19,6 @@
           Manage Apartment <span class="caret"></span>
         </button>
         <ul class="dropdown-menu">
-          <li><a (click)="onAddToPrefereceList()" style="cursor: pointer">To Preference List</a></li>
           <li><a style="cursor: pointer;" (click)="onEditApartment()">Edit Apartment</a></li>
           <li><a style="cursor: pointer;" (click)="onDeleteApartment()">Delete Apartment</a></li>
         </ul>
@@ -36,7 +35,7 @@
   <div class="col-xs-12">
     <ul class="list-group">
       <li class="list-group-item" *ngFor="let apartmentAttribute of apartment.apartmentAttributes">
-        {{ apartmentAttribute.name}} - {{ apartmentAttribute.score }}
+        {{ apartmentAttribute.name }}
       </li>
     </ul>
   </div>

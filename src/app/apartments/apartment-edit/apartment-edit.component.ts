@@ -77,7 +77,7 @@ export class ApartmentEditComponent implements OnInit {
           apartmentApartmentAttributes.push(
             new FormGroup({
               'name': new FormControl(apartmentAttribute.name, Validators.required),
-              'score': new FormControl(apartmentAttribute.score, [
+              'added': new FormControl(apartmentAttribute.added, [
                 Validators.required,
                 Validators.pattern(/^-[1-5]|^[0-5]/)
               ])

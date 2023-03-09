@@ -5,9 +5,9 @@
     <ul class="list-group">
       <a class="list-group-item"
          style="cursor: pointer"
-         *ngFor="let apartmentAttribute of apartmentAttributes; let i = index"
-         (click)="onEditApartmentAttribute(i)">
-        {{ apartmentAttribute.name }} <span class="pull-right">{{ apartmentAttribute.score }}</span>
+         *ngFor="let preference of preferences; let i = index"
+         (click)="onEditPreference(i)">
+        {{ preference.name }} <span class="pull-right">{{ preference.score }}</span>
       </a>
     </ul>
   </div>

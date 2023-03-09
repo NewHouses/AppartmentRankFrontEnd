@@ -13,26 +13,26 @@ export class PreferenceService {
     return this.preferences.slice();
   }
 
-  getApartmentAttributePreference(index: number) {
+  getPreference(index: number) {
     return this.preferences.slice()[index];
   }
 
-  addApartmentAttribute(apartmentAttribute: Preference) {
-    this.preferences.push(apartmentAttribute);
+  addPreference(preference: Preference) {
+    this.preferences.push(preference);
     this.preferencesChanged.next();
   }
 
-  addApartmentAttributes(apartmentAttributes: Preference[]) {
-    this.preferences.push(...apartmentAttributes);
+  addPreferences(preferences: Preference[]) {
+    this.preferences.push(...preferences);
     this.preferencesChanged.next()
   }
 
-  updateApartmentAttribute(index: number, newApartmentAttribute: Preference) {
-    this.preferences[index] = newApartmentAttribute;
+  updatePreference(index: number, newPreference: Preference) {
+    this.preferences[index] = newPreference;
     this.preferencesChanged.next();
   }
 
-  deleteApartmentAttribute(index: number) {
+  deletePreference(index: number) {
     this.preferences.splice(index, 1);
     this.preferencesChanged.next();
   }
