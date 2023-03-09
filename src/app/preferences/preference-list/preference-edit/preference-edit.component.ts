@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit, ViewChild, } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { ApartmentAttribute } from '../../../shared/apartmentAttribute.model';
+import { Preference } from '../../../shared/apartmentAttribute.model';
 import { PreferenceService } from '../../preference.service';
 
 @Component({
@@ -14,7 +14,7 @@ export class PreferenceEditComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   editMode = false;
   editedApartmentAttributeIndex: number;
-  editedApartmentAttribute: ApartmentAttribute;
+  editedApartmentAttribute: Preference;
 
   constructor(private preferenceService: PreferenceService) { }
 
@@ -39,7 +39,7 @@ export class PreferenceEditComponent implements OnInit, OnDestroy {
 
   onSubmit(form: NgForm) {
     const value = form.value;
-    const newApartmentAttribute = new ApartmentAttribute(value.name, value.score);
+    const newApartmentAttribute = new Preference(value.name, value.score);
     if (this.editMode) {
       this.preferenceService.updateApartmentAttribute(this.editedApartmentAttributeIndex, newApartmentAttribute);
     }

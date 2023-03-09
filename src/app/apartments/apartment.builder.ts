@@ -1,4 +1,4 @@
-import { ApartmentAttribute } from "../shared/apartmentAttribute.model";
+import { Preference } from "../shared/preference.model";
 import { Apartment } from "./apartment.model";
 
 export class ApartmentBuilder {
@@ -6,7 +6,7 @@ export class ApartmentBuilder {
   public link: string;
   public description: string;
   public imagePath: string;
-  public apartmentAttributes: ApartmentAttribute[];
+  public apartmentAttributes: Preference[];
 
   constructor() { }
 
@@ -30,7 +30,7 @@ export class ApartmentBuilder {
     return this;
   }
 
-  withApartmentAttributes(apartmentAttributes: ApartmentAttribute[]): ApartmentBuilder {
+  withApartmentAttributes(apartmentAttributes: Preference[]): ApartmentBuilder {
     this.apartmentAttributes = apartmentAttributes;
     return this;
   }

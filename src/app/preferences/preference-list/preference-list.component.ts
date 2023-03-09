@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { ApartmentAttribute } from '../../shared/apartmentAttribute.model';
+import { Preference } from '../../shared/apartmentAttribute.model';
 import { PreferenceService } from '../preference.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { PreferenceService } from '../preference.service';
   styleUrls: ['./preference-list.component.css']
 })
 export class PreferenceListComponent implements OnInit, OnDestroy {
-  apartmentAttributes: ApartmentAttribute[] = [];
+  apartmentAttributes: Preference[] = [];
   private preferenceChangeSub: Subscription;
 
   constructor(private preferenceServices: PreferenceService) { }
