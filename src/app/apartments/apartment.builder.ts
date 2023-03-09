@@ -5,7 +5,7 @@ export class ApartmentBuilder {
   public name: string;
   public link: string;
   public description: string;
-  public imagePath: string;
+  public imageUrl: string;
   public apartmentAttributes: ApartmentAttribute[];
 
   constructor() { }
@@ -20,8 +20,8 @@ export class ApartmentBuilder {
     return this;
   }
 
-  withImage(imagePath: string): ApartmentBuilder {
-    this.imagePath = imagePath;
+  withImage(imageUrl: string): ApartmentBuilder {
+    this.imageUrl = imageUrl;
     return this;
   }
 
@@ -36,6 +36,6 @@ export class ApartmentBuilder {
   }
 
   build(): Apartment {
-    return new Apartment(this.name, this.link, this.description, this.imagePath, this.apartmentAttributes);
+    return new Apartment(this.name, this.link, this.description, this.imageUrl, this.apartmentAttributes);
   }
 }

@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { ApartmentService } from "../apartments/apartment.service";
+import { ApartmentRankResponse } from "./apartmentRankResponse.model";
 
 @Injectable()
 export class DataStorageService {
@@ -12,9 +13,9 @@ export class DataStorageService {
     let queryParams = new HttpParams();
     queryParams = queryParams.append("apartmentRankRequest", this.apartmentRankRequest);
 
-    this.http.get('https://localhost:7106/SearchApartments', { params: queryParams })
+    this.http.get<ApartmentRankResponse>('https://localhost:7106/SearchApartments', { params: queryParams })
       .subscribe(apartments => {
-        console.log(apartments);
+        this.apartmentService.setApartments(apartments.apartments);
       })
   }
 }

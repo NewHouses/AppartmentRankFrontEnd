@@ -35,7 +35,7 @@ export class ApartmentEditComponent implements OnInit {
   onSubmit() {
     const newApartment = new ApartmentBuilder()
       .withName(this.apartmentForm.value['name'])
-      .withImage(this.apartmentForm.value['imagePath'])
+      .withImage(this.apartmentForm.value['imageUrl'])
       .withDescription(this.apartmentForm.value['description'])
       .withApartmentAttributes(this.apartmentForm.value['apartmentAttributes']);
 
@@ -70,7 +70,7 @@ export class ApartmentEditComponent implements OnInit {
     if (this.editMode) {
       const apartment = this.apartmentService.getApartment(this.apartmentId);
       apartmentName = apartment.name;
-      apartmentImagePath = apartment.imagePath;
+      apartmentImagePath = apartment.imageUrl;
       apartmentDescription = apartment.description;
       if (apartment['apartmentAttributes']) {
         for (let apartmentAttribute of apartment.apartmentAttributes) {
@@ -89,7 +89,7 @@ export class ApartmentEditComponent implements OnInit {
 
     this.apartmentForm = new FormGroup({
       'name': new FormControl(apartmentName, Validators.required),
-      'imagePath': new FormControl(apartmentImagePath, Validators.required),
+      'imageUrl': new FormControl(apartmentImagePath, Validators.required),
       'description': new FormControl(apartmentDescription, Validators.required),
       'apartmentAttributes': apartmentApartmentAttributes
     });
