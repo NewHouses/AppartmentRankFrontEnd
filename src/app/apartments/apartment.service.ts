@@ -20,6 +20,10 @@ export class ApartmentService {
     return this.apartments.slice();
   }
 
+  getOrderedApartmentsByScore() {
+    return this.apartments.slice().sort((a1, a2) => a1.score - a2.score).reverse();
+  }
+
   getApartment(index: number) {
     return this.apartments.slice()[index];
   }
