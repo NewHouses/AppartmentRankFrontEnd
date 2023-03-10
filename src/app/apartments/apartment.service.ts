@@ -12,7 +12,7 @@ export class ApartmentService {
   constructor() { }
 
   setApartments(apartments: Apartment[]) {
-    this.apartments = apartments;
+    this.apartments = apartments.sort((a1, a2) => a1.score - a2.score).reverse();
     this.apartmentsChanged.next(this.apartments.slice());
   }
 
@@ -20,7 +20,7 @@ export class ApartmentService {
     return this.apartments.slice();
   }
 
-  getOrderedApartmentsByScore() {
+  private getOrderedApartmentsByScore() {
     return this.apartments.slice().sort((a1, a2) => a1.score - a2.score).reverse();
   }
 

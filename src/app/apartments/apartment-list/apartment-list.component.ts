@@ -18,10 +18,10 @@ export class ApartmentListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription = this.apartmentService.apartmentsChanged.subscribe(
       () => {
-        this.apartments = this.apartmentService.getOrderedApartmentsByScore();
+        this.apartments = this.apartmentService.getApartments();
       }
     );
-    this.apartments = this.apartmentService.getOrderedApartmentsByScore();
+    this.apartments = this.apartmentService.getApartments();
   }
 
   ngOnDestroy(): void {
