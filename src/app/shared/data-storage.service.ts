@@ -1,6 +1,8 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { ApartmentService } from "../apartments/apartment.service";
+import { Filter } from "../apartments/filter/Filter.model";
+import { ApartmentRankRequest } from "./apartmentRankRequest.model";
 import { ApartmentRankResponse } from "./apartmentRankResponse.model";
 
 @Injectable()
@@ -9,9 +11,10 @@ export class DataStorageService {
 
   constructor(private http: HttpClient, private apartmentService: ApartmentService) { }
 
-  fetchApartments() {
+  fetchApartments(filter: Filter) {
     let queryParams = new HttpParams();
-    queryParams = queryParams.append("apartmentRankRequest", this.apartmentRankRequest);
+    let apartmentRankRequest = new ApartmentRankRequest(filter);
+    queryParams = queryParams.append("apartmentRankRequest", JSON.stringify(apartmentRankRequest));
 
     this.http.get<ApartmentRankResponse>('https://localhost:7106/SearchApartments', { params: queryParams })
       .subscribe(apartments => {
