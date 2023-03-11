@@ -7,9 +7,9 @@
           <input type="text"
                  id="name"
                  class="form-control"
-                 formControlName="name" 
+                 formControlName="name"
                  required />
-        </div>    
+        </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
@@ -17,9 +17,22 @@
             <label for="price">Prezo</label>
             <mat-slider min="0" max="5" step="1" showTickMarks>
               <input matSliderThumb id="price"
-                 class="form-control"
-                 formControlName="price"
-                 required>
+                     class="form-control"
+                     formControlName="price"
+                     required>
+            </mat-slider>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row form-group">
+            <label for="size">Tamaño</label>
+            <mat-slider min="0" max="5" step="1" showTickMarks>
+              <input matSliderThumb id="size"
+                     class="form-control"
+                     formControlName="size"
+                     required>
             </mat-slider>
           </div>
         </div>

@@ -34,6 +34,7 @@ export class PreferenceTemplateEditComponent implements OnInit, OnDestroy {
   private initForm() {
     let preferenceTemplateName = '';
     let preferenceTemplatePrice;
+    let preferenceTemplateSize;
 
     if (this.editMode) {
       this.editedPreferenceTemplate = this.preferenceService.getPreferenceTemplate(this.editedPreferenceTemplateIndex);
@@ -41,11 +42,15 @@ export class PreferenceTemplateEditComponent implements OnInit, OnDestroy {
       preferenceTemplatePrice = this.editedPreferenceTemplate.preferences.find(p => p.name === "price")?.score;
       if (preferenceTemplatePrice === null)
         preferenceTemplatePrice = 0;
+      preferenceTemplateSize = this.editedPreferenceTemplate.preferences.find(p => p.name === "size")?.score;
+      if (preferenceTemplateSize === null)
+        preferenceTemplateSize = 0;
     }
 
     this.preferencesForm = new FormGroup({
       'name': new FormControl(preferenceTemplateName, Validators.required),
       'price': new FormControl(preferenceTemplatePrice, Validators.required),
+      'size': new FormControl(preferenceTemplateSize, Validators.required),
     });
   }
 
@@ -56,7 +61,11 @@ export class PreferenceTemplateEditComponent implements OnInit, OnDestroy {
   onSubmit() {
     const value = this.preferencesForm.value;
     const newPreferenceTemplate = new PreferenceTemplate(value.name);
-    newPreferenceTemplate.preferences.push(...[new Preference("price", value.price)])
+
+    newPreferenceTemplate.preferences.push(...[
+      new Preference("price", value.price),
+      new Preference("size", value.size)])
+
     this.router.navigate(['../'], { relativeTo: this.route });
     if (this.editMode) {
       this.preferenceService.updatePreferenceTemplate(this.editedPreferenceTemplateIndex, newPreferenceTemplate);
