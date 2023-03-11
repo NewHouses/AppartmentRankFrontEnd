@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, ViewChild, } from '@angular/core';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Preference } from '../../shared/preference.model';

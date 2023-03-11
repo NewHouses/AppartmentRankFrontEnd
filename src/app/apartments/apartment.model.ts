@@ -31,6 +31,4 @@ export class Apartment {
     this.imageUrl = imageUrl;
     this.apartmentAttributes = apartmentAttributes;
   }
-
-
 }

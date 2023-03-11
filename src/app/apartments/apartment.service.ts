@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
 import { Apartment } from "./apartment.model";
-import { ApartmentAttribute } from "./apartmentAttribute.model";
 
 @Injectable()
 export class ApartmentService {
@@ -18,10 +17,6 @@ export class ApartmentService {
 
   getApartments() {
     return this.apartments.slice();
-  }
-
-  private getOrderedApartmentsByScore() {
-    return this.apartments.slice().sort((a1, a2) => a1.score - a2.score).reverse();
   }
 
   getApartment(index: number) {

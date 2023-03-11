@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ApartmentService } from './apartment.service';
 
 @Component({
   selector: 'app-apartments',
