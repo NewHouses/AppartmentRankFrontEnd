@@ -1,16 +1,9 @@
 import { Subject } from "rxjs";
-import { Preference } from "../shared/preference.model";
 import { PreferenceTemplate } from "../shared/preferenceTemplate.model";
 
 export class PreferenceService {
-  preferencesChanged = new Subject();
   preferenceTemplatesChanged = new Subject();
-  startedEditing = new Subject<number>();
   private preferenceTemplates: PreferenceTemplate[] = [];
-  private preferences: Preference[] = [
-    new Preference('Terraza', 2),
-    new Preference('Dúas habitacións', 3),
-  ]
 
   getPreferenceTemplates() {
     return this.preferenceTemplates.slice();
@@ -31,26 +24,7 @@ export class PreferenceService {
   }
 
   getPreferences() {
-    return this.preferences.slice();
-  }
-
-  getPreference(index: number) {
-    return this.preferences.slice()[index];
-  }
-
-  addPreference(preference: Preference) {
-    this.preferences.push(preference);
-    this.preferencesChanged.next();
-  }
-
-  addPreferences(preferences: Preference[]) {
-    this.preferences.push(...preferences);
-    this.preferencesChanged.next()
-  }
-
-  updatePreference(index: number, newPreference: Preference) {
-    this.preferences[index] = newPreference;
-    this.preferencesChanged.next();
+    return this.preferenceTemplates.slice()[0].preferences;
   }
 
   deletePreferenceTemplate(index: number) {
