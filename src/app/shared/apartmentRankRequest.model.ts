@@ -6,8 +6,8 @@ export class ApartmentRankRequest {
 
   public preferences: Preference[]
 
-  constructor(filter: Filter) {
+  constructor(filter: Filter, preferences: Preference[]) {
     this.filter = filter;
-    this.preferences = [];
+    this.preferences = preferences;
   }
 }

@@ -24,6 +24,9 @@ export class PreferenceService {
   }
 
   getPreferences() {
+    if (this.preferenceTemplates.slice().length === 0)
+      return []
+
     return this.preferenceTemplates.slice()[0].preferences;
   }
 
