@@ -53,8 +53,8 @@ export class PreferenceService {
     this.preferencesChanged.next();
   }
 
-  deletePreference(index: number) {
-    this.preferences.splice(index, 1);
-    this.preferencesChanged.next();
+  deletePreferenceTemplate(index: number) {
+    this.preferenceTemplates.splice(index, 1);
+    this.preferenceTemplatesChanged.next();
   }
 }

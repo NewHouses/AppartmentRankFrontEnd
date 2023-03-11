@@ -65,15 +65,15 @@ export class PreferenceTemplateEditComponent implements OnInit, OnDestroy {
       this.preferenceService.addPreferenceTemplate(newPreferenceTemplate);
     }
     this.onClear();
+    this.editMode = false;
   }
 
   onClear() {
-    this.editMode = false;
     this.preferencesForm.reset();
   }
 
   onDelete() {
-    this.preferenceService.deletePreference(this.editedPreferenceTemplateIndex);
-    this.onClear();
+    this.preferenceService.deletePreferenceTemplate(this.editedPreferenceTemplateIndex);
+    this.router.navigate(['../'], { relativeTo: this.route });
   }
 }
