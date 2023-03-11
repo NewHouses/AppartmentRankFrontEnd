@@ -3,12 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSliderModule } from '@angular/material/slider';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { PreferencesComponent } from './preferences/preferences.component';
 import { PreferenceListComponent } from './preferences/preference-list/preference-list.component';
-import { PreferenceEditComponent } from './preferences/preference-list/preference-edit/preference-edit.component';
 import { ApartmentsComponent } from './apartments/apartments.component';
 import { ApartmentListComponent } from './apartments/apartment-list/apartment-list.component';
 import { ApartmentItemComponent } from './apartments/apartment-list/apartment-item/apartment-item.component';
@@ -19,6 +20,7 @@ import { PreferenceService } from './preferences/preference.service';
 import { ApartmentEditComponent } from './apartments/apartment-edit/apartment-edit.component';
 import { ApartmentService } from './apartments/apartment.service';
 import { DataStorageService } from './shared/data-storage.service';
+import { PreferenceTemplateEditComponent } from './preferences/preference-list/preferenceTemplate-edit/preferenceTemplate-edit.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,7 @@ import { DataStorageService } from './shared/data-storage.service';
     HeaderComponent,
     PreferencesComponent,
     PreferenceListComponent,
-    PreferenceEditComponent,
+    PreferenceTemplateEditComponent,
     ApartmentsComponent,
     ApartmentListComponent,
     ApartmentDetailComponent,
@@ -41,7 +43,9 @@ import { DataStorageService } from './shared/data-storage.service';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSlideToggleModule,
+    MatSliderModule
   ],
   providers: [PreferenceService, ApartmentService, DataStorageService],
   bootstrap: [AppComponent]

@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Preference } from '../../shared/preference.model';
+import { PreferenceTemplate } from '../../shared/preferenceTemplate.model';
 import { PreferenceService } from '../preference.service';
 
 @Component({
@@ -9,26 +11,30 @@ import { PreferenceService } from '../preference.service';
   styleUrls: ['./preference-list.component.css']
 })
 export class PreferenceListComponent implements OnInit, OnDestroy {
-  preferences: Preference[] = [];
-  private preferenceChangeSub: Subscription;
+  preferenceTemplates: PreferenceTemplate[] = [];
+  private preferenceTemplateChangeSub: Subscription;
 
-  constructor(private preferenceServices: PreferenceService) { }
+  constructor(private preferenceServices: PreferenceService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.preferences = this.preferenceServices.getPreferences();
-    this.preferenceChangeSub = this.preferenceServices.preferencesChanged
+    this.preferenceTemplates = this.preferenceServices.getPreferenceTemplates();
+    this.preferenceTemplateChangeSub = this.preferenceServices.preferenceTemplatesChanged
       .subscribe(
         () => {
-          this.preferences = this.preferenceServices.getPreferences();
+          this.preferenceTemplates = this.preferenceServices.getPreferenceTemplates();
         }
     );
   }
 
   ngOnDestroy(): void {
-    this.preferenceChangeSub.unsubscribe();
+    this.preferenceTemplateChangeSub.unsubscribe();
   }
 
   onEditPreference(index: number) {
     this.preferenceServices.startedEditing.next(index);
+  }
+
+  onNewPreferenceTemplate() {
+    this.router.navigate(['new'], { relativeTo: this.route });
   }
 }

@@ -1,13 +1,25 @@
 import { Subject } from "rxjs";
 import { Preference } from "../shared/preference.model";
+import { PreferenceTemplate } from "../shared/preferenceTemplate.model";
 
 export class PreferenceService {
   preferencesChanged = new Subject();
+  preferenceTemplatesChanged = new Subject();
   startedEditing = new Subject<number>();
+  private preferenceTemplates: PreferenceTemplate[] = [];
   private preferences: Preference[] = [
     new Preference('Terraza', 2),
     new Preference('Dúas habitacións', 3),
   ]
+
+  getPreferenceTemplates() {
+    return this.preferenceTemplates.slice();
+  }
+
+  addPreferenceTemplate(preferenceTemplate: PreferenceTemplate) {
+    this.preferenceTemplates.push(preferenceTemplate);
+    this.preferenceTemplatesChanged.next();
+  }
 
   getPreferences() {
     return this.preferences.slice();
