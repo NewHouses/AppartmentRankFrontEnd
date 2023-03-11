@@ -1,14 +1,13 @@
 <div class="row">
   <div class="col-xs-12">
-    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <form [formGroup]="preferencesForm" (ngSubmit)="onSubmit()">
       <div class="row">
         <div class="col-sm-5 form-group">
           <label for="name">Nome da plantilla</label>
           <input type="text"
                  id="name"
                  class="form-control"
-                 name="name"
-                 ngModel
+                 formControlName="name" 
                  required />
         </div>    
       </div>
@@ -19,8 +18,7 @@
             <mat-slider min="0" max="5" step="1" showTickMarks>
               <input matSliderThumb id="price"
                  class="form-control"
-                 name="price"
-                 ngModel
+                 formControlName="price"
                  required>
             </mat-slider>
           </div>
@@ -28,7 +26,7 @@
       </div>
       <div class="row">
         <div class="col-xs-12">
-          <button class="btn btn-success" type="submit" [disabled]="!f.valid">{{ editMode ? 'Update' : 'Add' }}</button>
+          <button class="btn btn-success" type="submit">{{ editMode ? 'Update' : 'Add' }}</button>
           <button class="btn btn-danger" type="button" (click)="onDelete()" *ngIf="editMode">Delete</button>
           <button class="btn btn-primary" type="button" (click)="onClear()">Clear</button>
         </div>

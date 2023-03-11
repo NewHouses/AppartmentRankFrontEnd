@@ -16,8 +16,17 @@ export class PreferenceService {
     return this.preferenceTemplates.slice();
   }
 
+  getPreferenceTemplate(index: number) {
+    return this.preferenceTemplates.slice()[index];
+  }
+
   addPreferenceTemplate(preferenceTemplate: PreferenceTemplate) {
     this.preferenceTemplates.push(preferenceTemplate);
+    this.preferenceTemplatesChanged.next();
+  }
+
+  updatePreferenceTemplate(index: number, preferenceTemplate: PreferenceTemplate) {
+    this.preferenceTemplates[index] = preferenceTemplate;
     this.preferenceTemplatesChanged.next();
   }
 

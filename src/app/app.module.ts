@@ -20,7 +20,8 @@ import { PreferenceService } from './preferences/preference.service';
 import { ApartmentEditComponent } from './apartments/apartment-edit/apartment-edit.component';
 import { ApartmentService } from './apartments/apartment.service';
 import { DataStorageService } from './shared/data-storage.service';
-import { PreferenceTemplateEditComponent } from './preferences/preference-list/preferenceTemplate-edit/preferenceTemplate-edit.component';
+import { PreferenceTemplateEditComponent } from './preferences/preferenceTemplate-edit/preferenceTemplate-edit.component';
+import { PreferenceTemplateItemComponent } from './preferences/preference-list/preference-template-item/preference-template-item.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { PreferenceTemplateEditComponent } from './preferences/preference-list/p
     ApartmentItemComponent,
     FilterComponent,
     DropdownDirective,
-    ApartmentEditComponent
+    ApartmentEditComponent,
+    PreferenceTemplateItemComponent
   ],
   imports: [
     FormsModule,

@@ -1,18 +1,7 @@
 <div class="row">
-  <div class="col-xs-12">
-    <button class="btn btn-success" (click)="onNewPreferenceTemplate()">Nova Plantilla de Preferencias</button>
-  </div>
-</div>
-<hr />
-<div class="row">
   <div class="col-xs-10">
-    <ul class="list-group">
-      <a class="list-group-item"
-         style="cursor: pointer"
-         *ngFor="let preferenceTemplate of preferenceTemplates; let i = index"
-         (click)="onEditPreference(i)">
-        {{ preferenceTemplate.name }}
-      </a>
-    </ul>
+    <app-preference-template-item *ngFor="let preferenceTemplate of preferenceTemplates; let i = index"
+                        [preferenceTemplateItem]="preferenceTemplate"
+                        [index]="i"></app-preference-template-item>
   </div>
 </div>
