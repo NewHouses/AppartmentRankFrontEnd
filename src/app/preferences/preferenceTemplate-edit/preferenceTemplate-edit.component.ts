@@ -21,6 +21,17 @@ export class PreferenceTemplateEditComponent implements OnInit, OnDestroy {
   constructor(private preferenceService: PreferenceService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    const map = new google.maps.Map(
+      document.getElementById("map") as HTMLElement,
+      {
+        zoom: 13,
+        center: {
+            lat: 42.2191814,
+            lng: -8.74549713
+        }
+      }
+    );
+
     this.editSubscription = this.route.params.subscribe(
       (params: Params) => {
         this.editedPreferenceTemplateIndex = +params['preferenceTemplateId'];

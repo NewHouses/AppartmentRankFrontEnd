@@ -22,6 +22,7 @@ import { ApartmentService } from './apartments/apartment.service';
 import { DataStorageService } from './shared/data-storage.service';
 import { PreferenceTemplateEditComponent } from './preferences/preferenceTemplate-edit/preferenceTemplate-edit.component';
 import { PreferenceTemplateItemComponent } from './preferences/preference-list/preference-template-item/preference-template-item.component';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { PreferenceTemplateItemComponent } from './preferences/preference-list/p
     ReactiveFormsModule,
     HttpClientModule,
     MatSlideToggleModule,
-    MatSliderModule
+    MatSliderModule,
+    GoogleMapsModule
   ],
   providers: [PreferenceService, ApartmentService, DataStorageService],
   bootstrap: [AppComponent]
