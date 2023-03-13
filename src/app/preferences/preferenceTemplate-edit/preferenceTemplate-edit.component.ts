@@ -32,6 +32,20 @@ export class PreferenceTemplateEditComponent implements OnInit, OnDestroy {
       }
     );
 
+    var drawingManager = new google.maps.drawing.DrawingManager({
+      drawingControlOptions: {
+        drawingModes: [
+          google.maps.drawing.OverlayType.POLYGON,
+        ],
+      }
+    });
+    drawingManager.setMap(map);
+
+    google.maps.event.addListener(drawingManager, 'overlaycomplete', (event: any) => {
+      var vertices = this.getPolygonCoordinates(event.overlay);
+      this.addArea(vertices);
+    });
+
     this.editSubscription = this.route.params.subscribe(
       (params: Params) => {
         this.editedPreferenceTemplateIndex = +params['preferenceTemplateId'];
@@ -40,6 +54,23 @@ export class PreferenceTemplateEditComponent implements OnInit, OnDestroy {
         this.initForm()
    }
     );
+  }
+
+
+  addArea(vertices: google.maps.LatLng[]) {
+    for (let i = 0; i < vertices.length; i++) {
+      var vertice = vertices.at(i);
+      console.log("Latitude: " + vertice?.lat() + " Longitude: " + vertice?.lng());
+    }
+  }
+
+  getPolygonCoordinates(polygon: google.maps.Polygon): google.maps.LatLng[] {
+    var path = polygon.getPath();
+    const coordinates: google.maps.LatLng[] = [];
+    for (let i = 0; i < path.getLength(); i++) {
+      coordinates.push(path.getAt(i));
+    }
+    return coordinates;
   }
 
   private initForm() {
