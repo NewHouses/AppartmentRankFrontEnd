@@ -74,17 +74,14 @@ export class PreferenceTemplateEditComponent implements OnInit, OnDestroy {
     var areaName = this.preferencesForm.value.areaName;
     if (areaName === '' || areaName === null)
       areaName = 'Area ' + (this.areas.length + 1);
-    console.log("nome da Area: " + areaName);
 
     var area = new Area(areaName);
     for (let i = 0; i < vertices.length; i++) {
       var vertice = vertices.at(i);
       var latLong = new LatLong(vertice != null ? vertice.lat() : 0, vertice != null ? vertice.lng() : 0);
       area.path.push(latLong);
-      console.log("Latitude: " + vertice?.lat() + " Longitude: " + vertice?.lng());
     }
     this.areas.push(area);
-    console.log(this.areas);
     var controlName = 'score ' + areaName;
     this.preferencesForm.addControl(controlName, new FormControl(0));
     this.preferencesForm.controls['areaName'].reset()
@@ -134,8 +131,6 @@ export class PreferenceTemplateEditComponent implements OnInit, OnDestroy {
     newPreferenceTemplate.preferences.push(...[
       new Preference("price", value.price),
       new Preference("size", value.size)])
-
-    console.log(value);
 
     for (let i = 0; i < this.areas.length; i++) {
       var controlName = 'score ' + this.areas[i].name;
