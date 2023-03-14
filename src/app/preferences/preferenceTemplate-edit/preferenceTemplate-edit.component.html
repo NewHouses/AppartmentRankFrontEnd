@@ -37,7 +37,33 @@
           </div>
         </div>
       </div>
-      <div id="map" ></div>
+      <span>Debuxa as túas areas de preferencia</span>
+      <div id="map"></div>
+      <div class="row">
+        <div class="col-sm-5 form-group">
+          <label for="areaName">Nome da area</label>
+          <input type="text"
+                 id="areaName"
+                 class="form-control"
+                 formControlName="areaName"
+                 required />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-5 form-group">
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let area of areas">
+              {{ area.name }}
+              <mat-slider min="0" max="5" step="1" showTickMarks>
+                <input matSliderThumb id="score {{ area.name }}"
+                       class="form-control"
+                       formControlName="score {{ area.name }}"
+                       required>
+              </mat-slider>
+            </li>
+          </ul>
+        </div>
+      </div>
       <div class="row">
         <div class="col-xs-12">
           <button class="btn btn-success" type="submit">{{ editMode ? 'Update' : 'Add' }}</button>
