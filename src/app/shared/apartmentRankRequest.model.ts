@@ -1,13 +1,13 @@
 import { Filter } from "../apartments/filter/Filter.model";
-import { Preference } from "./preference.model";
+import { PreferenceTemplate } from "./preferenceTemplate.model";
 
 export class ApartmentRankRequest {
   public filter: Filter;
 
-  public preferences: Preference[]
+  public preferenceTemplate: PreferenceTemplate
 
-  constructor(filter: Filter, preferences: Preference[]) {
+  constructor(filter: Filter, preferenceTemplate: PreferenceTemplate) {
     this.filter = filter;
-    this.preferences = preferences;
+    this.preferenceTemplate = preferenceTemplate;
   }
 }

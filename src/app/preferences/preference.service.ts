@@ -23,11 +23,11 @@ export class PreferenceService {
     this.preferenceTemplatesChanged.next();
   }
 
-  getPreferences() {
+  getPreferences() : PreferenceTemplate {
     if (this.preferenceTemplates.slice().length === 0)
-      return []
+      return new PreferenceTemplate('EmptyPreferenceTemplate');
 
-    return this.preferenceTemplates.slice()[0].preferences;
+    return this.preferenceTemplates.slice()[0];
   }
 
   deletePreferenceTemplate(index: number) {
