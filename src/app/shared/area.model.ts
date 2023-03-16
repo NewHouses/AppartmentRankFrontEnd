@@ -10,10 +10,10 @@ export class Area {
 
 export class LatLong {
   public lat: number;
-  public long: number;
+  public lng: number;
 
-  constructor(lat: number, long: number) {
+  constructor(lat: number, lng: number) {
     this.lat = lat;
-    this.long = long;
+    this.lng = lng;
   }
 }
