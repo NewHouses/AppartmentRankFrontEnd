@@ -12,6 +12,6 @@ export class HeaderComponent {
   constructor(private dataSorageService: DataStorageService) { }
 
   onFetchApartments() {
-    this.dataSorageService.fetchApartments(new Filter(2000,0));
+    this.dataSorageService.fetchApartments(new Filter(2000, 0, '42.22788973334626,-8.72946020788653', 4000));
   }
 }

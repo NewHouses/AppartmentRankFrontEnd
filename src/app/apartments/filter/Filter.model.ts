@@ -8,11 +8,12 @@ export class Filter {
   public bedrooms: number;
   public furnished: string;
 
-  constructor(maxPrice: number, bedrooms: number) {
+  constructor(maxPrice: number, bedrooms: number, center: string, distance: number) {
+    console.log(center, distance)
     this.operation = 'rent';
     this.propertyType = 'homes';
-    this.center = '42.223661,-8.730236';
-    this.distance = 15000;
+    this.center = center.replace('(', '').replace(')', '').replace(' ', '');
+    this.distance = distance;
     this.maxPrice = maxPrice;
     this.studio = false;
     this.bedrooms = bedrooms;
