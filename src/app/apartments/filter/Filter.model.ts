@@ -9,7 +9,6 @@ export class Filter {
   public furnished: string;
 
   constructor(maxPrice: number, bedrooms: number, center: string, distance: number) {
-    console.log(center, distance)
     this.operation = 'rent';
     this.propertyType = 'homes';
     this.center = center.replace('(', '').replace(')', '').replace(' ', '');
