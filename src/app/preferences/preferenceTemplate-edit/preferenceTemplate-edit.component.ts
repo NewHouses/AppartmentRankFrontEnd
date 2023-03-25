@@ -91,6 +91,10 @@ export class PreferenceTemplateEditComponent implements OnInit, OnDestroy {
     let preferenceTemplateName = '';
     let preferenceTemplatePrice;
     let preferenceTemplateSize;
+    let preferenceTemplateAllowPets;
+    let preferenceTemplateTerrace;
+    let preferenceTemplateGarage;
+    let preferenceTemplateStorageRoom;
     let preferenceTemplateAreaName = '';
 
     if (this.editMode) {
@@ -102,12 +106,28 @@ export class PreferenceTemplateEditComponent implements OnInit, OnDestroy {
       preferenceTemplateSize = this.editedPreferenceTemplate.preferences.find(p => p.name === "size")?.score;
       if (preferenceTemplateSize === null)
         preferenceTemplateSize = 0;
+      preferenceTemplateAllowPets = this.editedPreferenceTemplate.preferences.find(p => p.name === "allow_pets")?.score;
+      if (preferenceTemplateAllowPets === null)
+        preferenceTemplateAllowPets = 0;
+      preferenceTemplateTerrace = this.editedPreferenceTemplate.preferences.find(p => p.name === "terrace")?.score;
+      if (preferenceTemplateTerrace === null)
+        preferenceTemplateTerrace = 0;
+      preferenceTemplateGarage = this.editedPreferenceTemplate.preferences.find(p => p.name === "garage")?.score;
+      if (preferenceTemplateGarage === null)
+        preferenceTemplateGarage = 0;
+      preferenceTemplateStorageRoom = this.editedPreferenceTemplate.preferences.find(p => p.name === "storage_room")?.score;
+      if (preferenceTemplateStorageRoom === null)
+        preferenceTemplateStorageRoom = 0;
     }
 
     this.preferencesForm = new FormGroup({
       'name': new FormControl(preferenceTemplateName, Validators.required),
       'price': new FormControl(preferenceTemplatePrice, Validators.required),
       'size': new FormControl(preferenceTemplateSize, Validators.required),
+      'allowPets': new FormControl(preferenceTemplateAllowPets, Validators.required),
+      'terrace': new FormControl(preferenceTemplateTerrace, Validators.required),
+      'garage': new FormControl(preferenceTemplateGarage, Validators.required),
+      'storageRoom': new FormControl(preferenceTemplateStorageRoom, Validators.required),
       'areaName': new FormControl(preferenceTemplateAreaName),
     });
 
@@ -130,7 +150,11 @@ export class PreferenceTemplateEditComponent implements OnInit, OnDestroy {
 
     newPreferenceTemplate.preferences.push(...[
       new Preference("price", value.price),
-      new Preference("size", value.size)])
+      new Preference("size", value.size),
+      new Preference("allow_pets", value.allowPets),
+      new Preference("terrace", value.terrace),
+      new Preference("garage", value.garage),
+      new Preference("storage_room", value.storageRoom)])
 
     for (let i = 0; i < this.areas.length; i++) {
       var controlName = 'score ' + this.areas[i].name;

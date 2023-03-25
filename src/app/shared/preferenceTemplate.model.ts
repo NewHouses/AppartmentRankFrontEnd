@@ -8,5 +8,11 @@ export class PreferenceTemplate {
 
   constructor(name: string) {
     this.name = name;
+    this.preferences.push(...[
+      new Preference("community_tax_included", 1),
+      new Preference("electricity_costs_included", 1),
+      new Preference("gas_costs_included", 1),
+      new Preference("water_costs_included", 1)
+    ]);
   }
 }
