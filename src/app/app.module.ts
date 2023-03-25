@@ -23,6 +23,8 @@ import { DataStorageService } from './shared/data-storage.service';
 import { PreferenceTemplateEditComponent } from './preferences/preferenceTemplate-edit/preferenceTemplate-edit.component';
 import { PreferenceTemplateItemComponent } from './preferences/preference-list/preference-template-item/preference-template-item.component';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { AuthComponent } from './auth/auth.component';
+import { NewUserComponent } from './auth/new-user/new-user.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { GoogleMapsModule } from '@angular/google-maps';
     FilterComponent,
     DropdownDirective,
     ApartmentEditComponent,
-    PreferenceTemplateItemComponent
+    PreferenceTemplateItemComponent,
+    AuthComponent,
+    NewUserComponent
   ],
   imports: [
     FormsModule,
