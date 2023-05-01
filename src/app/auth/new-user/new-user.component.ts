@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { AuthService } from '../auth.service';
 export class NewUserComponent {
   areNotEqualPasswords: boolean;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private router: Router) {
 
   }
 
@@ -28,6 +29,7 @@ export class NewUserComponent {
 
     this.authService.signup(username, password).subscribe(resData => {
       console.log(resData);
+      this.router.navigate(['']);
     }, error => {
       console.log(error);
     });
