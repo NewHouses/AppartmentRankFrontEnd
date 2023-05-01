@@ -27,13 +27,14 @@ export class NewUserComponent {
 
     this.areNotEqualPasswords = false;
 
-    this.authService.signup(username, password).subscribe(resData => {
+    this.authService.signup(username, password).subscribe((resData) => {
       console.log(resData);
+      form.reset();
       this.router.navigate(['']);
     }, error => {
       console.log(error);
-    });
 
-    form.reset();
+      form.reset();
+    });
   }
 }
