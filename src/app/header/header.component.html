@@ -7,10 +7,20 @@
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li routerLinkActive="active"><a routerLink="/apartments">Apartments</a></li>
-        <li routerLinkActive="active"><a routerLink="/preferences">Preferences</a></li>
+        <li routerLinkActive="active"><a routerLink="/preferences" *ngIf="isAuthenticated">Preferences</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li routerLinkActive="active"><a routerLink="/auth">Iniciar sesión</a></li>
+        <li routerLinkActive="active"><a routerLink="/auth" *ngIf="!isAuthenticated">Iniciar sesión</a></li>
+        <li class="dropdown" appDropdown *ngIf="isAuthenticated">
+          <a style="cursor:pointer;" class="dropdown-toggle" role="button">
+            {{ username }} <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a style="cursor:pointer;">Saír da sesión</a>
+            </li>
+          </ul>
+        </li>
       </ul>
     </div>
   </div>

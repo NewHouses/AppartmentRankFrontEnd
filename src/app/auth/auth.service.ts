@@ -31,7 +31,6 @@ export class AuthService {
     if (token != null) {
       const user = new User(username, token)
       this.user.next(user);
-      console.log(this.user);
     }
   }
 }
