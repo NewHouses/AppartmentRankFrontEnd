@@ -10,6 +10,7 @@ import { AuthService } from '../auth.service';
 })
 export class NewUserComponent {
   areNotEqualPasswords: boolean;
+  error: string;
 
   constructor(private authService: AuthService, private router: Router) {
 
@@ -33,7 +34,7 @@ export class NewUserComponent {
       this.router.navigate(['']);
     }, error => {
       console.log(error);
-
+      this.error = 'Ocorreu un erro durante a creación do novo usuario!'
       form.reset();
     });
   }
